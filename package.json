@@ -3,9 +3,17 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "convert-units": "^2.3.4",
+    "moment": "^2.24.0",
+    "prop-types": "^15.7.2",
     "react": "^16.8.4",
     "react-dom": "^16.8.4",
-    "react-scripts": "2.1.8"
+    "react-flexbox-grid": "^2.1.2",
+    "react-redux": "^6.0.1",
+    "react-scripts": "2.1.8",
+    "react-weathericons": "^1.0.4",
+    "redux": "^4.0.1"
   },
   "scripts": {
     "start": "react-scripts start",

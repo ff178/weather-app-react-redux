@@ -1,0 +1,13 @@
+.listCities{
+	background-color: #1d1d1d;
+	height: 634px;
+	overflow: auto;
+}
+
+@media (max-width: 64em){
+	.listCities{
+		background-color: #1d1d1d;
+		height: 200px;
+		overflow: auto;
+	}
+}

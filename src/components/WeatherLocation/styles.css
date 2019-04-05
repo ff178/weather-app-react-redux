@@ -1,0 +1,27 @@
+.location{
+	width: 100%;
+	text-align: left;
+	color: #eff4ff;
+	display: block;;
+}
+.nameCity{
+	font-size: 170%;
+	margin-left: 5%;
+}
+.weatherLocationCont{
+	width: 100%;
+	height: 300px;
+	margin-bottom: 0.5%;
+}
+.loaders{
+	margin-left: 45%;
+	margin-top: 40%;
+}
+@media (max-width: 64em){
+	.nameCity{
+		font-size: 100%;
+	}
+	.weatherLocationCont{
+		height: 200px;
+	}
+}

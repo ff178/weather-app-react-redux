@@ -1,0 +1,20 @@
+.ForecastExtended{
+	background-color: #1d1d1d;
+	height: 634px;
+	overflow: auto;
+}
+.ForecastItem{
+	height: 300px;
+	overflow: hidden;
+	
+}
+.loaders{
+	margin-left: 45%;
+	margin-top: 50%;
+}
+
+@media (max-width: 64em){
+	.ForecastItem{
+		height: 220px;	
+	}
+}
