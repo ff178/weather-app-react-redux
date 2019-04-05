@@ -4,6 +4,7 @@ import {connect} from 'react-redux';
 import AppBar from '@material-ui/core/AppBar';
 import Typography from '@material-ui/core/Typography';
 import Toolbar from '@material-ui/core/Toolbar';
+import {getForecastDataFromCities, getCity} from './../reducers';
 import ForecastExtended from './../components/ForecastExtended';
 
 class ForecastExtendedContainer extends Component {
@@ -30,6 +31,6 @@ ForecastExtendedContainer.protoTypes = {
 	forecastData: PropTypes.array.isRequired,
 }
 
-const mapStateToProps = ({ city, cities }) => ({ city, forecastData: cities[city] && cities[city].forecastData});
+const mapStateToProps = state => ({ city: getCity(state), forecastData: getForecastDataFromCities(state)});
 
 export default connect(mapStateToProps, null)(ForecastExtendedContainer);
