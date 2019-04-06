@@ -1,6 +1,6 @@
-import {url_forecast_weather, api_key, url_base_weather} from './../constants/api_url';
 import transforForecast from './../services/transforForecast';
 import transforWeather from './../services/transforWeather';
+import {getUrlCity, getUrlForecast} from './../services/getUrl';
 
 export const SET_CITY = 'SET_CITY';
 export const SET_FORECAST_DATA = 'SET_FORECAST_DATA';
@@ -17,7 +17,7 @@ const setWeatherCity = payload => ({type: SET_WEATHER_CITY, payload});
 
 export const setSelectedCity = payload => {
 	return dispatch =>{
-		const url_forecast = `${url_forecast_weather}?q=${payload}&appid=${api_key}`;
+		const url_forecast = getUrlForecast(payload);
 
 		//activar en el estado un indicador de busqueda de datos
 		dispatch(setCity(payload));
@@ -41,15 +41,17 @@ export const setWeather = payload => {
 	return dispatch => {
 		payload.forEach(city => {
 
+			//se obtiene la ciudad con el reducer 
 			dispatch(getWeatherCity(city));
 
-			const api_weather = `${url_base_weather}?q=${city}&appid=${api_key}`;
+			const api_weather = getUrlCity(city);
 
 			fetch(api_weather).then(data =>{
 				return data.json();
 			}).then(weather_data => {
 				const weather = transforWeather(weather_data);
 
+				//se modifica el state de la ciudad y el clima
 				dispatch(setWeatherCity({city, weather}));
 			});
 		});
