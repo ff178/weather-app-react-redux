@@ -16,11 +16,20 @@ const setWeatherCity = payload => ({type: SET_WEATHER_CITY, payload});
 
 
 export const setSelectedCity = payload => {
-	return dispatch =>{
+	return (dispatch, getState) =>{
 		const url_forecast = getUrlForecast(payload);
 
 		//activar en el estado un indicador de busqueda de datos
 		dispatch(setCity(payload));
+		const state = getState();
+		const date = state.cities[payload] && state.cities[payload].forecastDataDate;
+
+		const now = new Date();
+
+		if (date && (now - date) < 1 * 60 * 1000){
+			return;
+		}
+
 		return fetch(url_forecast).then(
 			data => (data.json()
 		).then(
